@@ -5,7 +5,7 @@ import Hero from './components/Hero'
 import Timepage from './components/Timepage'
 import Shopscrad from './components/Shopscrad'
 import BestSellers from './components/BestSellers'
-import Marqueepage from './components/Marqueepage'
+import Marqueepage from './components/MarqueePage'
 import ProudectDittles from './components/ProudectDittles'
 import CustomrReviews from './components/CustomrReviews'
 import HlapLine from './components/HlapLine'
@@ -18,7 +18,7 @@ const App = () => {
       <Timepage/>
       <Shopscrad/>
       <BestSellers/>
-      <Marqueepage/>
+      <MarqueePage/>
       <ProudectDittles/>
       <CustomrReviews/>
       <HlapLine/>

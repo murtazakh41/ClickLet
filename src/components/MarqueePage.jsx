@@ -1,5 +1,5 @@
 import React from 'react'
-const Marqueepage = () => {
+const MarqueePage = () => {
 
   const saleItems = Array(10).fill({
     tag: "Sale",
@@ -50,4 +50,4 @@ const Marqueepage = () => {
   )
 }
 
-export default Marqueepage
+export default MarqueePage

@@ -87,22 +87,61 @@ const Catalog = () => {
 
               {/* Dropdown */}
               {open && (
-                <div className="absolute top-14 left-0 w-full bg-white rounded-2xl shadow-xl overflow-hidden z-50">
+                <div className="flex justify-center px-2">
+  <div className="relative w-full max-w-[250px] sm:max-w-[280px]">
 
-                  {options.map((item, index) => (
-                    <div
-                      key={index}
-                      onClick={() => {
-                        setSelected(item);
-                        setOpen(false);
-                      }}
-                      className="px-5 py-3 cursor-pointer hover:bg-black hover:text-white transition-all duration-300"
-                    >
-                      {item}
-                    </div>
-                  ))}
+    {/* Selected Box */}
+    <div
+      onClick={() => setOpen(!open)}
+      className="
+        bg-white
+        px-4 sm:px-5
+        py-2 sm:py-3
+        rounded-full
+        shadow-md
+        flex justify-between items-center
+        cursor-pointer
+        hover:shadow-lg
+        transition-all duration-300
+        text-sm sm:text-base
+      "
+    >
+      <span className="truncate">{selected}</span>
+      <span className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}>
+        ▼
+      </span>
+    </div>
 
-                </div>
+    {/* Dropdown */}
+    {open && (
+      <div className="
+        absolute left-0 mt-2 w-full
+        bg-white rounded-2xl shadow-xl
+        overflow-hidden z-50
+        border border-gray-100
+      ">
+        {options.map((item, index) => (
+          <div
+            key={index}
+            onClick={() => {
+              setSelected(item);
+              setOpen(false);
+            }}
+            className="
+              px-4 py-3 text-sm sm:text-base
+              cursor-pointer
+              hover:bg-black hover:text-white
+              transition-all duration-300
+            "
+          >
+            {item}
+          </div>
+        ))}
+      </div>
+    )}
+
+  </div>
+</div>
               )}
 
             </div>

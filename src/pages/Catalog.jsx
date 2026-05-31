@@ -60,138 +60,113 @@ const Catalog = () => {
       </div>
 
       {/* Filter Bar */}
-      <div className="bg-gray-100 rounded-xl mt-10 p-5 shadow-md">
+   <div className="bg-gray-100 rounded-xl mt-10 p-4 sm:p-5 shadow-md">
 
-        <div className="grid grid-cols-3 items-center">
+  <div className="flex flex-col md:grid md:grid-cols-3 gap-4 md:items-center">
 
-          {/* Left */}
-          <div className="flex justify-start">
-            <h2 className="font-bold text-lg">Filters</h2>
-          </div>
-
-          {/* Center */}
-          <div className="flex justify-center">
-
-            <div className="relative w-[250px]">
-
-              {/* Selected */}
-              <div
-                onClick={() => setOpen(!open)}
-                className="bg-white px-5 py-3 rounded-full shadow-md flex justify-between items-center cursor-pointer hover:shadow-lg duration-300"
-              >
-                <span>{selected}</span>
-                <span className={`duration-300 ${open ? "rotate-180" : ""}`}>
-                  ▼
-                </span>
-              </div>
-
-              {/* Dropdown */}
-              {open && (
-                <div className="flex justify-center px-2">
-  <div className="relative w-full max-w-[250px] sm:max-w-[280px]">
-
-    {/* Selected Box */}
-    <div
-      onClick={() => setOpen(!open)}
-      className="
-        bg-white
-        px-4 sm:px-5
-        py-2 sm:py-3
-        rounded-full
-        shadow-md
-        flex justify-between items-center
-        cursor-pointer
-        hover:shadow-lg
-        transition-all duration-300
-        text-sm sm:text-base
-      "
-    >
-      <span className="truncate">{selected}</span>
-      <span className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}>
-        ▼
-      </span>
+    {/* LEFT */}
+    <div className="flex justify-center md:justify-start">
+      <h2 className="font-bold text-lg">Filters</h2>
     </div>
 
-    {/* Dropdown */}
-    {open && (
-      <div className="
-        absolute left-0 mt-2 w-full
-        bg-white rounded-2xl shadow-xl
-        overflow-hidden z-50
-        border border-gray-100
-      ">
-        {options.map((item, index) => (
-          <div
-            key={index}
-            onClick={() => {
-              setSelected(item);
-              setOpen(false);
-            }}
-            className="
-              px-4 py-3 text-sm sm:text-base
-              cursor-pointer
-              hover:bg-black hover:text-white
-              transition-all duration-300
-            "
-          >
-            {item}
+    {/* CENTER DROPDOWN */}
+    <div className="flex justify-center w-full">
+
+      <div className="relative w-full max-w-[260px] sm:max-w-[280px]">
+
+        {/* Selected */}
+        <div
+          onClick={() => setOpen(!open)}
+          className="
+            bg-white
+            px-4 py-3
+            rounded-full
+            shadow-md
+            flex justify-between items-center
+            cursor-pointer
+            hover:shadow-lg
+            transition
+            text-sm sm:text-base
+          "
+        >
+          <span className="truncate">{selected}</span>
+          <span className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}>
+            ▼
+          </span>
+        </div>
+
+        {/* Dropdown */}
+        {open && (
+          <div className="
+            absolute top-14 left-0 w-full
+            bg-white rounded-2xl shadow-xl
+            overflow-hidden z-50
+            border border-gray-100
+          ">
+            {options.map((item, index) => (
+              <div
+                key={index}
+                onClick={() => {
+                  setSelected(item);
+                  setOpen(false);
+                }}
+                className="
+                  px-4 py-3
+                  cursor-pointer
+                  hover:bg-black hover:text-white
+                  transition
+                  text-sm sm:text-base
+                "
+              >
+                {item}
+              </div>
+            ))}
           </div>
-        ))}
+        )}
+
       </div>
-    )}
+    </div>
+
+    {/* RIGHT BUTTONS */}
+    <div className="flex justify-center md:justify-end gap-2 sm:gap-3 text-lg sm:text-xl">
+
+      <button
+        onClick={() => setGrid(2)}
+        className={`p-2 sm:p-3 rounded-lg shadow transition ${
+          grid === 2
+            ? "bg-black text-white"
+            : "bg-white hover:bg-black hover:text-white"
+        }`}
+      >
+        <FaBars />
+      </button>
+
+      <button
+        onClick={() => setGrid(3)}
+        className={`p-2 sm:p-3 rounded-lg shadow transition ${
+          grid === 3
+            ? "bg-black text-white"
+            : "bg-white hover:bg-black hover:text-white"
+        }`}
+      >
+        <FaGripLinesVertical />
+      </button>
+
+      <button
+        onClick={() => setGrid(4)}
+        className={`p-2 sm:p-3 rounded-lg shadow transition ${
+          grid === 4
+            ? "bg-black text-white"
+            : "bg-white hover:bg-black hover:text-white"
+        }`}
+      >
+        <RxColumns />
+      </button>
+
+    </div>
 
   </div>
 </div>
-              )}
-
-            </div>
-
-          </div>
-
-          {/* Right */}
-          <div className="flex justify-end gap-3 text-xl">
-
-            {/* 2 Column */}
-            <button
-              onClick={() => setGrid(2)}
-              className={`p-3 rounded-lg shadow transition-all duration-300 ${
-                grid === 2
-                  ? "bg-black text-white"
-                  : "bg-white hover:bg-black hover:text-white"
-              }`}
-            >
-              <FaBars />
-            </button>
-
-            {/* 3 Column */}
-            <button
-              onClick={() => setGrid(3)}
-              className={`p-3 rounded-lg shadow transition-all duration-300 ${
-                grid === 3
-                  ? "bg-black text-white"
-                  : "bg-white hover:bg-black hover:text-white"
-              }`}
-            >
-              <FaGripLinesVertical />
-            </button>
-
-            {/* 4 Column */}
-            <button
-              onClick={() => setGrid(4)}
-              className={`p-3 rounded-lg shadow transition-all duration-300 ${
-                grid === 4
-                  ? "bg-black text-white"
-                  : "bg-white hover:bg-black hover:text-white"
-              }`}
-            >
-              <RxColumns />
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
 
       {/* Product Grid (FIXED) */}
       <div

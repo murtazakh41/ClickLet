@@ -1,29 +1,29 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
+import Catalog from "./pages/Catalog";
+import Contact from "./pages/Contact";
 
 const App = () => {
   return (
-    <Router>
+    <>
+      {/* Har page par show hoga */}
       <Navbar />
 
       <Routes>
-        {/* Home Page */}
-        <Route
-          path="/"
-          element={
-            <Home />
-          }
-        />
+        <Route path="/" element={<Home />} />
+        <Route path="/catalog" element={<Catalog />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
 
+      {/* Har page par show hoga */}
       <Footer />
-    </Router>
+    </>
   );
 };
 

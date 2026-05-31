@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/Logo.avif";
-
 import {
   CiSearch,
   CiUser,
@@ -42,7 +41,7 @@ const Navbar = () => {
         {/* CENTER LINKS */}
         <div className="hidden lg:flex gap-8 font-semibold">
           <Link to="/" className="hover:text-gray-600">Home</Link>
-          <Link to="/shop" className="hover:text-gray-600">Shop</Link>
+          <Link to="/catalog" className="hover:text-gray-600">Catalog</Link>
           <Link to="/contact" className="hover:text-gray-600">Contact</Link>
         </div>
 
@@ -97,7 +96,7 @@ const Navbar = () => {
 
         <div className="flex flex-col p-5 gap-5 font-medium">
           <Link to="/" onClick={() => setMobileMenu(false)}>Home</Link>
-          <Link to="/shop" onClick={() => setMobileMenu(false)}>Shop</Link>
+          <Link to="/catalog" onClick={() => setMobileMenu(false)}>Catalog</Link>
           <Link to="/contact" onClick={() => setMobileMenu(false)}>Contact</Link>
         </div>
       </div>

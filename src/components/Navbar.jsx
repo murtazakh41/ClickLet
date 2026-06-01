@@ -54,7 +54,9 @@ const Navbar = () => {
             onClick={() => setShowSearch(!showSearch)}
           />
 
-          <CiUser className="text-2xl cursor-pointer" />
+          <Link to="/login">
+            <CiUser className="text-2xl cursor-pointer" />
+          </Link>
           <CiHeart className="text-2xl cursor-pointer" />
           <CiShoppingCart className="text-2xl cursor-pointer" />
         </div>

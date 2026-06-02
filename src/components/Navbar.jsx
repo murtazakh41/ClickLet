@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/Logo.avif";
+import ShopCrat from "./ShopCrat";
 import {
   CiSearch,
   CiUser,
@@ -14,15 +15,14 @@ const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false); // Example cart state
 
   return (
     <>
       {/* NAVBAR */}
       <nav className="w-full h-20 bg-white px-5 md:px-10 lg:px-20 py-4 flex justify-between items-center overflow-hidden">
-
         {/* LEFT */}
         <div className="flex items-center gap-4">
-
           {/* Mobile Menu Button */}
           <button className="lg:hidden" onClick={() => setMobileMenu(true)}>
             <CiMenuFries className="text-3xl" />
@@ -40,14 +40,19 @@ const Navbar = () => {
 
         {/* CENTER LINKS */}
         <div className="hidden lg:flex gap-8 font-semibold">
-          <Link to="/" className="hover:text-gray-600">Home</Link>
-          <Link to="/catalog" className="hover:text-gray-600">Catalog</Link>
-          <Link to="/contact" className="hover:text-gray-600">Contact</Link>
+          <Link to="/" className="hover:text-gray-600">
+            Home
+          </Link>
+          <Link to="/catalog" className="hover:text-gray-600">
+            Catalog
+          </Link>
+          <Link to="/contact" className="hover:text-gray-600">
+            Contact
+          </Link>
         </div>
 
         {/* RIGHT ICONS */}
         <div className="flex items-center gap-4 text-gray-700">
-
           {/* Search */}
           <CiSearch
             className="text-2xl cursor-pointer"
@@ -57,8 +62,17 @@ const Navbar = () => {
           <Link to="/login">
             <CiUser className="text-2xl cursor-pointer" />
           </Link>
-          <CiHeart className="text-2xl cursor-pointer" />
-          <CiShoppingCart className="text-2xl cursor-pointer" />
+          <Link to="/wishlist">
+            <CiHeart className="text-2xl cursor-pointer" />
+          </Link>
+          <CiShoppingCart
+            onClick={() => setCartOpen(true)}
+            className="text-2xl cursor-pointer"
+          />
+          <ShopCrat
+  cartOpen={cartOpen}
+  setCartOpen={setCartOpen}
+/>
         </div>
       </nav>
 
@@ -73,10 +87,7 @@ const Navbar = () => {
             className="w-[80%] md:w-[40%] px-4 py-2 rounded-full border"
           />
 
-          <button
-            onClick={() => setShowSearch(false)}
-            className="ml-3 text-xl"
-          >
+          <button onClick={() => setShowSearch(false)} className="ml-3 text-xl">
             ✕
           </button>
         </div>
@@ -97,9 +108,15 @@ const Navbar = () => {
         </div>
 
         <div className="flex flex-col p-5 gap-5 font-medium">
-          <Link to="/" onClick={() => setMobileMenu(false)}>Home</Link>
-          <Link to="/catalog" onClick={() => setMobileMenu(false)}>Catalog</Link>
-          <Link to="/contact" onClick={() => setMobileMenu(false)}>Contact</Link>
+          <Link to="/" onClick={() => setMobileMenu(false)}>
+            Home
+          </Link>
+          <Link to="/catalog" onClick={() => setMobileMenu(false)}>
+            Catalog
+          </Link>
+          <Link to="/contact" onClick={() => setMobileMenu(false)}>
+            Contact
+          </Link>
         </div>
       </div>
 

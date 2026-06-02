@@ -11,7 +11,8 @@ import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ForgotPassword from "./pages/ForgotPassword";
-
+import ShopCrat from "./components/ShopCrat";// Assuming you have this component created
+import Wishlist from "./pages/Wishlist";
 const App = () => {
   const location = useLocation();
   const [loading, setLoading] = useState(false);
@@ -56,6 +57,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/wishlist" element={<Wishlist />} />
       </Routes>
 
       <Footer />

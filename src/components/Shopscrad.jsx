@@ -1,6 +1,7 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 const Shopscrad = () => {
+  const navigate = useNavigate();
   const products = [
     {
       id: 1,
@@ -9,8 +10,14 @@ const Shopscrad = () => {
         "A powerful smartphone with a sleek design and advanced features.",
       image:
         "https://plus.unsplash.com/premium_photo-1680985551009-05107cd2752c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8U21hcnRwaG9uZSUyMFhZWnxlbnwwfHwwfHx8MA%3D%3D",
+      backImage:
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U21hcnRwaG9uZSUyMFhZWnxlbnwwfHwwfHx8MA%3D%3D",
+      leftImage:
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U21hcnRwaG9uZSUyMFhZWnxlbnwwfHwwfHx8MA%3D%3D",
+
       discountPrice: 1880,
       originalPrice: 2000,
+      catgrey: 67,
     },
     {
       id: 2,
@@ -19,8 +26,13 @@ const Shopscrad = () => {
         "Experience high-quality sound with these wireless headphones.",
       image:
         "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8V2lyZWxlc3MlMjBIZWFkcGhvbmVzJTIwQUJDfGVufDB8fDB8fHww",
+      backImage:
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8V2lyZWxlc3MlMjBIZWFkcGhvbmVzJTIwQUJDfGVufDB8fDB8fHww",
+      leftImage:
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8V2lyZWxlc3MlMjBIZWFkcGhvbmVzJTIwQUJDfGVufDB8fDB8fHww",
       discountPrice: 1880,
       originalPrice: 2000,
+      total: 100,
     },
     {
       id: 3,
@@ -29,8 +41,13 @@ const Shopscrad = () => {
         "Stay connected and track your fitness with this stylish smartwatch.",
       image:
         "https://plus.unsplash.com/premium_photo-1712764121254-d9867c694b81?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8U21hcnR3YXRjaCUyMERFRnxlbnwwfHwwfHx8MA%3D%3D",
+      backImage:
+        "https://media.istockphoto.com/id/2267029998/photo/stone-headphones.jpg?s=1024x1024&w=is&k=20&c=OC2m8VhPMUlvwOZNAIihQIWfKmG7PDiFjpACusezkU4=",
+      leftImage:
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8V2lyZWxlc3MlMjBIZWFkcGhvbmVzJTIwQUJDfGVufDB8fDB8fHww",
       discountPrice: 1880,
       originalPrice: 2000,
+      total: 69,
     },
     {
       id: 4,
@@ -38,11 +55,17 @@ const Shopscrad = () => {
       description: "A high-performance laptop for work and entertainment.",
       image:
         "https://media.istockphoto.com/id/95769834/photo/laptop-isolated.webp?a=1&b=1&s=612x612&w=0&k=20&c=AXeOs6CSrn2aRvIq8W-K57Y-q2nnEPzn7RTUcxURvtY=",
+      backImage:
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8V2lyZWxlc3MlMjBIZWFkcGhvbmVzJTIwQUJDfGVufDB8fDB8fHww",
+      leftImage:
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8V2lyZWxlc3MlMjBIZWFkcGhvbmVzJTIwQUJDfGVufDB8fDB8fHww",
       discountPrice: 1880,
       originalPrice: 2000,
+      total: 50,
     },
   ];
-
+  console.log(products);
+  
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <h1 className="text-2xl sm:text-3xl font-bold mb-8 text-center">
@@ -50,11 +73,14 @@ const Shopscrad = () => {
       </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {products.map((product) => (
+        {products.map((product, index) => (
           <div
-            className="bg-white rounded-xl shadow-md p-4 
-  hover:shadow-xl hover:scale-105 
-  transition-all duration-300 ease-in-out cursor-pointer"
+            onClick={() =>
+              navigate(`/products/${product.id}`, {
+                state: { product },
+              })
+            }
+            className="bg-white rounded-xl shadow-md p-4 hover:shadow-xl hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer"
             key={product.id}
           >
             <img

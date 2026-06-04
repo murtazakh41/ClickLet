@@ -4,7 +4,9 @@ import { CiCircleRemove } from "react-icons/ci";
 const ShopCrat = ({ cartOpen, setCartOpen }) => {
   return (
     <>
+    
       <div
+      
         className={`fixed top-0 right-0 h-full w-80 bg-white shadow-xl z-50 transform transition-transform duration-300 ${
           cartOpen ? "translate-x-0" : "translate-x-full"
         }`}

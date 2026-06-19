@@ -65,7 +65,7 @@ const Shopscrad = () => {
     },
   ];
   console.log(products);
-  
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <h1 className="text-2xl sm:text-3xl font-bold mb-8 text-center">
@@ -77,7 +77,7 @@ const Shopscrad = () => {
           <div
             onClick={() =>
               navigate(`/products/${product.id}`, {
-                state: { product },
+                state: { product }, 
               })
             }
             className="bg-white rounded-xl shadow-md p-4 hover:shadow-xl hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer"
